@@ -2,6 +2,8 @@ package telemetry
 
 import (
 	"time"
+
+	"github.com/paulmach/go.geo"
 )
 
 // Represents one second of telemetry data
