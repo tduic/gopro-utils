@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	
 )
 
 func stringInSlice(a string, list []string) bool {
@@ -89,7 +88,7 @@ func Read(f io.Reader) (*TELEM, error) {
 		label_string := string(label)
 
 		if !stringInSlice(label_string, labels) {
-			err := fmt.Errorf("Could not find label in list: %s (%x)\n", label, label)
+			err := fmt.Printf("Could not find label in list: %s (%x)\n", label, label)
 			return nil, err
 		}
 
