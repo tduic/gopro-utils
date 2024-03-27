@@ -7,7 +7,6 @@ import (
 	"io"
 	"os"
 
-	
 	"github.com/tduic/gopro-utils/telemetry"
 )
 
