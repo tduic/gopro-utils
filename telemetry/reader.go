@@ -117,7 +117,7 @@ func Read(f io.Reader) (*TELEM, error) {
 		length := val_size * num_values
 
 		// uncomment to see label, type, size and length
-		//fmt.Printf("%s (%c) of size %v and len %v\n", label, desc[0], val_size, length)
+		fmt.Printf("%s (%c) of size %v and len %v\n", label, desc[0], val_size, length)
 
 		if "SCAL" == label_string {
 			value := make([]byte, val_size*num_values, val_size*num_values)
@@ -144,7 +144,6 @@ func Read(f io.Reader) (*TELEM, error) {
 
 				// I think DVID is the payload boundary; this might be a bad assumption
 				if "DVID" == label_string {
-
 					// XXX: I think this might skip the first sentence
 					return t, nil
 				} else if "GPS5" == label_string {
@@ -201,15 +200,15 @@ func Read(f io.Reader) (*TELEM, error) {
 					t.GpsFix = g
 				} else if "UNIT" == label_string {
 					// this is a string of units like "rad/s", not sure if it changes
-					//fmt.Printf("\tvals: %s\n", value)
+					fmt.Printf("\tvals: %s\n", value)
 				} else if "SIUN" == label_string {
 					// this is the SI unit - also not sure if it changes
-					//fmt.Printf("\tvals: %s\n", value)
+					fmt.Printf("\tvals: %s\n", value)
 				} else if "DVNM" == label_string {
 					// device name, "Camera"
-					//fmt.Printf("\tvals: %s\n", value)
+					fmt.Printf("\tvals: %s\n", value)
 				} else {
-					//fmt.Printf("\tvalue is %v\n", value)
+					fmt.Printf("\tvalue is %v\n", value)
 				}
 			}
 		}
